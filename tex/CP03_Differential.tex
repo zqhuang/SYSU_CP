@@ -1,0 +1,149 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{3}{导函数}
+
+\secpage{导函数}{$f'(x) \equiv \lim_{\Delta x\rightarrow 0}\frac{\Delta f}{\Delta x}$}
+  
+\begin{frame}
+  \frametitle{回顾}
+  在前面两讲中，我们得出  
+  \tbox{
+ 当 $|x|\ll 1$ 时，
+  \bea
+  (1+x)^\alpha & \approx & 1+\alpha x \newl
+  \sin x & \approx & x \newl
+  \cos x & \approx & 1-x^2/2 \newl
+  e^x &\approx & 1+x \newl
+  \ln (1+x) &\approx & x 
+  \eea
+  }
+  希望你们能反复练习直到熟练掌握这些公式。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{导函数：瞬时变化率}
+  我们已经熟悉了如何计算一个随时间变化的量 $f(t)$ 的微小改变量和时间 $t$ 的微小改变量之比：
+  $$\frac{\Delta f}{\Delta t}$$
+  在 $\Delta t\rightarrow 0$ 时，上式给出了 $f$ 的瞬时变化率。这称为 $f$ 的{\blue 导函数}：
+\tbox{  $$ f'(t) = \frac{df}{dt} \equiv \lim_{\Delta t\rightarrow 0} \frac{\Delta f}{\Delta t} $$}
+这里的 $\Delta f$ 是 $ f(t+\Delta t) - f(t)$ 的简写。这里的 $f'(t)$ 和 $\frac{df}{dt}$ 是导函数的两种等价写法。
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{不一定要“瞬时”，可以是“瞬X”}
+  前面用“瞬时变化率”来描述导函数只是为了和物理中的瞬时速度联系起来，方便理解。
+
+  \skipline
+  
+  实际上，如果自变量是其他任何物理量，或者纯粹就是数学意义上的变量，并不会影响导函数的定义。例如函数 $y(x)$ 的导函数可以写为：
+  $$y'(x) = \frac{dy}{dx} = \lim_{\Delta x\rightarrow 0}\frac{\Delta y}{\Delta x}=\lim_{\Delta x\rightarrow 0}\frac{y(x+\Delta x)-y(x)}{\Delta x}.$$
+\end{frame}
+
+\begin{frame}
+  \frametitle{$y=f(x)$ 的导函数的几何意义：切线的斜率}
+
+  \addfig{3.5}{deriv.png}
+
+\end{frame}
+
+
+
+\begin{frame}
+  我们前面研究过的小量近似可以直接用来计算一些比较简单的函数的导函数。例如根据
+  $$\frac{\Delta (e^x)}{\Delta x} = \frac{e^{x+\Delta x}-e^x}{\Delta x} = \frac{e^x(e^{\Delta x}-1)}{\Delta x} \approx e^x $$
+  （当 $\Delta x$ 趋向于零时，约等号就成为等号）
+  
+  就能看出 $e^x$ 的导函数就是它本身。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think.jpg}
+  
+  请用小量近似的方法，计算 $x^\alpha, \sin x, \cos x, \ln x$ 这些函数的导函数。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think1.jpg}
+  
+  计算 $2e^x+x^3$ 的导函数。讨论一般地如何在已知 $f(x)$ 和 $g(x)$ 的导函数的情况下，如何计算 $af(x)+bg(x)$ 的导函数(这里 $a, b$是常数)。
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think2.jpg}
+  
+  计算 $x^3e^x$的导函数。讨论一般地如何在已知 $f(x)$ 和 $g(x)$ 的导函数的情况下，如何计算 $f(x)g(x)$ 的导函数。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think3.jpg}
+  
+  计算 $\sin(3x)$ 的导函数。讨论一般地如何在已知 $f(x)$ 的导函数的情况下，如何计算 $f(ax)$ 的导函数(这里 $a$是常数)。
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think4.jpg}
+  
+  计算 $e^{\sin x}$的导函数，并讨论一般地如何计算一个复合函数 $f(g(x))$ 的导函数。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think1.jpg}
+  
+  计算 $\arcsin x$的导函数，并讨论一般地如何计算一个反函数的导函数。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think2.jpg}
+  
+  计算 $\tan x$的导函数。讨论一般地如何在已知 $f(x)$ 和 $g(x)$ 的导函数的情况下，如何计算 $\frac{f(x)}{g(x)}$ 的导函数。
+\end{frame}
+
+\begin{frame}
+  \frametitle{思考题}
+
+  \addfig{0.5}{think3.jpg}
+  
+曲线 $|x|^\alpha+|y|^\alpha=1$ ($\alpha$为常数）上任取一个 $x, y$ 均为非零的点 P。过P点作曲线的切线和 $x$轴，$y$轴相交于A、B两点。如果要求线段AB的长度和所取点P位置无关，$\alpha$ 的值等于多少？  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem
+\item{计算 $\sin(\sin(\sin x))$ 的导函数。}
+\item{计算 $\arctan (ax)$ 的导函数($a$是常量)。}
+  \eitem
+\end{frame}
+
+
+\ech
+\end{document}

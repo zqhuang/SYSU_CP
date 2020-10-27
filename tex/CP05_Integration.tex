@@ -1,0 +1,165 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{5}{积分}
+
+\secpage{积分}{ $$ \int_a^b dF = F(b) - F(a)$$}
+
+
+\begin{frame}
+  \frametitle{历史变化量之和=总变化量}
+  设 $F(t)$ 是随时间 $t$ 变化的（可导）函数，我们使用 $d F$ 表示 $F$ 在 $t$ 和 $t+dt$ 时刻的微小变化。显然
+  $$ dF = F'(t) dt $$
+  如果把某一个固定时刻开始，至 $t$ 时刻，历史上所有的 $dF$ 全部进行累加，就有
+  $$ F(t) - F(t_0) = \sum_{t_0<\xi<t} F'(\xi) d\xi $$
+  这个求和符号表示对 $[t_0,t]$ 内的一段段时间元进行累加。对此有个专门的“积分”符号：
+  $$ F(t)-F(t_0) = \int_{t_0}^t F'(\xi) d\xi $$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{定积分}
+  把上面的式子左右互换，就是{\blue 定积分}的表达式：
+  \tbox{  $$\int_{t_0}^t F'(\xi) d\xi = F(t)-F(t_0) $$}
+
+  \addfig{2}{integral.jpg}
+  
+  请说明上式左边就是 $f(t)\equiv F'(t)$ 的函数图像下的面积。
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{不定积分}
+  计算定积分
+  $$\int_{t_0}^tf(\xi)d\xi $$
+  的关键在于求出这样的 $F(\xi)$ 使得 $f(\xi)= F'(\xi)$ ($\forall \xi\in (t_0,t)$)。我们把 $F$ 叫做 $f$ 的原函数。
+
+  按照高等数学通常约定，求原函数的过程可以写成包含未定的常数 $C$ 的“不定积分”的形式：
+  \tbox{$$\int f(t) dt  = F(t) + C $$}
+       {\scriptsize
+  这个式子其实有很大歧义，因为左边的 $t$ 和右边的 $t$ 完全不是一码事。它实际上想表达的是：
+  $$\int_{?}^t f(\xi)d\xi  =  F(t) - F(?)$$
+       不同的 $?$ 取法会给出不同的积分常数 $C = - F(?)$ }
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{原函数}
+  求原函数（不定积分）是求导数的逆运算。例如
+
+  $$\int x^\alpha dx = \frac{1}{\alpha+1}x^{\alpha+1}+C \ (\alpha\ne -1)$$
+  
+  $$\int \frac{dx}{x} = \ln x + C  \ (x>0) $$
+  
+  $$\int e^x dx =  e^x + C $$
+
+  等等
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{分部积分方法}
+  把乘积的求导公式反过来用就有
+  \tbox{$$ \int f(x) d\left(g(x)\right) = f(x)g(x) - \int g(x) d\left(f(x)\right) $$}
+  请用它计算下列不定积分
+  $$\int \ln x dx $$
+
+  $$\int x e^x dx $$
+  
+  $$\int e^x\cos x\, dx $$
+
+
+\end{frame}
+
+\secpage{双曲函数}{$$\cosh^2x - \sinh^2x=1$$}
+
+
+\begin{frame}
+\frametitle{双曲正弦和双曲余弦}
+
+双曲正弦函数$\sinh$和双曲余弦函数$\cosh$分别定义为：
+
+\tbox{$$ \sinh x \equiv \frac{e^x-e^{-x}}{2} $$}
+
+\tbox{$$ \cosh x \equiv \frac{e^x+e^{-x}}{2} $$}
+
+此外还有双曲正切$\tanh x \equiv \frac{\sinh x }{ \cosh x}$，双曲余切$\coth\equiv  \frac{ \cosh x}{\sinh x }$，双曲正割$\sech x\equiv \frac{1}{\cosh x}$，双曲余割$\csch x\equiv \frac{1}{\sinh x}$等。
+\end{frame}
+
+\begin{frame}
+\frametitle{双曲函数公式和三角函数公式对比}
+
+\bmini{0.48}
+\begin{eqnarray}
+  \cos^2x + \sin^2x   &=& 1 \newl
+  \frac{d}{dx}\sin x   &=& \cos x \newl
+  \frac{d}{dx}\cos x   &=& -\sin x \newl
+  \frac{d}{dx}\tan x   &=& \sec^2 x \newl  
+  \frac{d}{dx}\cot x   &=& -\csc^2 x \newl  
+  \sin(2x) &=& 2\sin x \cos x \newl
+  \cos(2x) &=& 2\cos^2 x - 1 \nonumber
+\end{eqnarray}
+\emini
+\bmini{0.48}
+\begin{eqnarray}
+ \cosh^2x - \sinh^2x   &=& 1 \newl
+  \frac{d}{dx}\sinh x   &=& \cosh x \newl
+  \frac{d}{dx}\cosh x   &=& \sinh x \newl
+  \frac{d}{dx}\tanh x   &=& \sech^2 x \newl    
+  \frac{d}{dx}\coth x   &=& -\csch^2 x \newl    
+  \sinh(2x) &=& 2\sinh x \cosh x \newl
+  \cosh(2x) &=& 2\cosh^2x - 1 \nonumber
+\end{eqnarray}
+\emini
+\end{frame}
+
+
+\secpage{积分的变量替换}{三角代换、双曲代换和半角正切代换}
+
+\thinka{对 $a>0$，计算不定积分
+  $\int \sqrt{a^2-x^2}dx$
+}
+
+\thinkb{对 $a>0$，计算不定积分 $\int \frac{1}{\sqrt{a^2+x^2}} dx$}
+
+
+\thinkc{计算定积分$\int_0^1 \sqrt{1+x^2} dx$}
+
+
+\thinkd{计算不定积分$\int \frac{dx}{2+\cos x} $}
+
+\secpage{转动惯量}{$$I = \int r^2 dm$$}
+
+\begin{frame}
+  \frametitle{均匀棒的转动惯量}
+  刚体绕某个轴的转动惯量可以用积分
+  $$\int r^2 dm $$
+  来表示。其中 $r$ 是质量元 $dm$ 到中心轴的距离。
+
+  \addfig{2}{rotrod.jpg}
+  
+  计算一个质量为 $m$，长度为 $L$ 的均匀棒
+  \bitem
+\item[1]{绕过棒的端点并和棒垂直的轴的转动惯量。}
+\item[2]{绕过棒的端点并和棒垂直的轴的转动惯量。}
+  \eitem
+\end{frame}
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem
+\item[1]{计算不定积分 $$\int \frac{dx}{\left(1+x^2\right)^{3/2}}$$}
+\item[2]{计算定积分 $$\int_0^1 \sqrt{x(1-x)}dx$$}
+\item[3]{计算一个质量为 $m$，半径为 $R$ 的均匀圆盘绕过其中心且垂直于圆盘的轴的转动惯量}
+  \eitem
+\end{frame}
+
+\ech
+\end{document}

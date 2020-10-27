@@ -1,0 +1,130 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{6}{泰勒级数与各种近似}
+
+\secpage{泰勒级数}{$$f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$$}
+
+
+\begin{frame}
+  \frametitle{dalao泰勒}
+  
+  \bcenter
+  \lfig{1.5}{Taylor.jpg}
+
+  Brook Taylor (1685-1731)
+  \ecenter
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{泰勒展开： 一级近似}
+  
+  假设函数$f$在$x_0$无限次可导，且在各阶导数  $f^{(n)}(x_0)$ (这是 $\left.\frac{d^nf}{dx^n}\right\vert_{x=x_0}$的简写) 均已知，我们想求$f$在$x_0$附近的一点$x$处的函数值。
+
+
+  \skiplines
+  
+  按照物理学家的思路，先求个一阶近似:
+  \begin{equation}
+    f(x) \approx f(x_0) + f'(x_0)(x-x_0). \nonumber
+  \end{equation}
+  
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{泰勒级数： 二级近似}
+  
+  当然这样的一阶近似对导函数$f'$也成立，且对$x_0$附近的任何一点$\xi$成立：
+$$    f'(\xi) \approx f'(x_0) + f''(x_0)(\xi-x_0).  $$
+
+  把上式对$\xi$从$x_0$到$x$积分，得到
+  $$     f(x) - f(x_0) \approx f'(x_0)(x-x_0) + \frac{f''(x_0)}{2} (x-x_0)^2 ,$$
+  移项即得$f(x)$的二阶近似：
+  \begin{equation}
+    f(x) \approx f(x_0)  + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2} (x-x_0)^2 \nonumber
+  \end{equation}
+  
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{泰勒级数： 三级近似}
+  
+  同理，这样的二阶近似对导函数$f'$也成立，且对$x_0$附近的任何一点$\xi$成立：
+$$    f'(\xi) \approx f'(x_0) + f''(x_0)(\xi-x_0) + \frac{f^{(3)}(x_0)}{2} (\xi - x_0)^2.  $$
+
+  把上式对$\xi$从$x_0$到$x$积分，得到
+  $$     f(x) - f(x_0)  \approx  f'(x_0)(x-x_0) + \frac{f''(x_0)}{2} (x-x_0)^2 + \frac{f^{(3)}(x_0)}{3!}(x-x_0)^3. $$
+  移项即得$f(x)$的三级近似：
+  \begin{equation}
+    f(x)  \approx f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2} (x-x_0)^2 + \frac{f^{(3)}(x_0)}{3!}(x-x_0)^3. \nonumber
+  \end{equation}
+  
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{泰勒级数}
+  
+  把这样的过程进行无限多次，就得到{\blue 泰勒展开公式：
+  $$f(x) = \sum_{n=0}^\infty a_n(x-x_0)^n,$$
+  其中$a_n = \frac{f^{(n)}(x_0)}{n!}$.}
+
+  \skiplines
+
+  (在数学严谨性上毫无节操的)物理学家对上述一系列操作表现得十分自信，但这显然是盲目乐观——因为{\bf 泰勒级数有可能是发散的。}
+  
+\end{frame}
+
+
+
+\thinka{把 $\frac{1}{1-x}$ 在 $x_0=0$ 附近展开，并讨论级数在什么范围内收敛。}
+
+
+\secpage{五大展开公式}{五招打遍高数……}
+
+\begin{frame}
+  \frametitle{五个展开公式（前三个）}
+  \tbox{$$e^x = 1+x+\frac{x^2}{2!} + \frac{x^3}{3!} + \ldots$$}
+  \tbox{$$\sin x = x-\frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots$$}
+  \tbox{$$\cos x = 1-\frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \ldots$$}
+  这三个公式无条件成立
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{五个展开公式(后两个)}
+  \tbox{$$(1+x)^\alpha = 1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2 +\frac{\alpha(\alpha-1)(\alpha-2)}{3!}x^3 + \ldots $$}
+  \tbox{$$\ln (1+x) =  x-\frac{x^2}{2} +\frac{x^3}{3} -\frac{x^4}{4} + \ldots $$}
+  这两个公式{\blue 适用于$|x|< 1$}; 你也可以在$|x|=1$时浪一下，一般不会出问题。但是，{\blue 在$|x|>1$的情况下一定不能浪，在$|x|>1$的情况下一定不能浪，在$|x|>1$的情况下一定不能浪}——重要的事情说三遍。
+\end{frame}
+
+\thinka{计算极限 $$\lim_{x\rightarrow 0} (\cos x)^{\frac{1}{(e^x-1)\sin x}}$$}
+
+
+\thinkb{心算： $e^\pi$ 和 $\pi^e$ 哪个大？}
+
+\thinkc{估算积分 $$\int_0^1 \sqrt{1+x^3} dx $$ 的值，至少保留2位有效数。}
+
+\thinkd{理想单摆的摆幅（最大摆角）趋向于零时，摆动周期为 $T_0$。请估算：当摆幅为多少时，摆动周期为 $1.01T_0$？
+}
+
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem
+\item[1]{计算极限 $$\lim_{x\rightarrow 0} (1+x-\sin x)^{\frac{1}{\sin x - x\cos x}} $$}
+\item[2]{计算无穷级数和 $$1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\ldots $$}
+\item[3]{估算积分  $$\int_0^1 \sqrt{1+x^4} dx $$ 的值，至少保留2位有效数。 }
+  \eitem
+\end{frame}
+
+\ech
+\end{document}

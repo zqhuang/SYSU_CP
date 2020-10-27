@@ -1,2 +1,2 @@
-# SYSU_CP
-Calculus in Physics
+# SYSU_MMP
+Methods of Mathematical Physics

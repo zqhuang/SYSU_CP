@@ -1,0 +1,265 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{4}{矢量求导与质点运动学}
+
+\secpage{矢量求导}{ $$\frac{d}{dt}\left(\vec{A}\cdot \vec{B}\right) = A\cdot \frac{d\vec{B}}{dt} + \frac{d\vec{A}}{dt} \cdot \vec{B}$$}
+
+
+\begin{frame}
+  \frametitle{矢量函数的求导}
+
+  假设一个矢量$\vec{A}$随着时间变化，那么可以定义它对时间的导数为：
+  $$\vec{A}'(t) = \frac{d\vec{A}}{dt} = \lim_{\Delta t\rightarrow 0}\frac{\vec{A}(t+\Delta t) - \vec{A}(t)}{\Delta t}$$
+  （这里涉及到了矢量的减法和矢量和普通数的相乘，我们都在小学学习过……吧）
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{矢量函数和普通函数的乘积的求导}
+  设 $f(t)$ 为普通函数， $\vec{A}(t)$ 为矢量函数，根据
+  $$ \Delta(f\vec{A}) = (f+\Delta f)(\vec{A}+\Delta\vec{A})- f \vec{A}  \approx f\Delta\vec{A} + (\Delta f) \vec{A} $$
+  （忽略掉了高阶小量 $(\Delta f)(\Delta\vec{A})$）
+
+  立即就有
+  
+  \tbox{  $$\frac{d}{dt}\left(f\vec{A}\right) = f\frac{d\vec{A}}{dt} + \frac{df}{dt}\vec{A}$$}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{矢量函数的内积求导}
+  根据
+  $$ \Delta(\vec{A}\cdot\vec{B}) = (\vec{A}+\Delta\vec{A})\cdot (\vec{B}+\Delta\vec{B}) - \vec{A}\cdot \vec{B}  \approx \Delta \vec{A}\cdot \vec{B} + \vec{A}\cdot\Delta\vec{B} $$
+  （忽略掉了高阶小量 $\Delta\vec{A}\cdot\Delta\vec{B}$）
+
+  立即就有
+  
+  \tbox{  $$\frac{d}{dt}\left(\vec{A}\cdot \vec{B}\right) = \vec{A}\cdot \frac{d\vec{B}}{dt} + \frac{d\vec{A}}{dt} \cdot \vec{B}$$}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{矢量函数的外积求导}
+  完全类似地可以得出  
+  \tbox{  $$\frac{d}{dt}\left(\vec{A}\times \vec{B}\right) = \vec{A}\times \frac{d\vec{B}}{dt} + \frac{d\vec{A}}{dt} \times \vec{B}$$}
+  注意这里的叉乘要保持次序不变。
+  
+\end{frame}
+
+\secpage{质点运动学}{  $$\vec{\upsilon} \equiv \frac{d\vec{s}}{dt}$$
+  $$\vec{a} \equiv \frac{d\vec{\upsilon}}{dt} = \frac{d^2\vec{s}}{dt^2}$$}
+
+
+\begin{frame}
+  \frametitle{位移矢量，速度矢量，加速度矢量}
+  牛顿力学里的位移矢量 $\vec{s}$，速度矢量 $\vec{\upsilon}$ 和 加速度矢量 $\vec{a}$ 满足
+  \tbox{
+  $$\vec{\upsilon} \equiv \frac{d\vec{s}}{dt}$$
+  $$\vec{a} \equiv \frac{d\vec{\upsilon}}{dt} = \frac{d^2\vec{s}}{dt^2}$$}
+  这里我们碰到二阶导数 $\vec{s}''$（连续对时间求两次导数）的又一种写法： $\frac{d^2\vec{s}}{dt^2}$。这样写的好处是可以清楚地看出这是对时间 $t$ 在求导。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{数*单位的描述}
+  从小学开始我们就十分熟悉用“数*单位”来描述物理量。例如质量{\blue $2$千克}的质点受到大小为{\blue $10$牛顿}的力，产生大小为{\blue $5$米每秒平方}的加速度:
+  $$10\mathrm{N} = 2\mathrm{kg} \times 5\mathrm{m/s^2}$$
+  尽管你有使用国际单位制的好习惯，但请尽可能地不要把 $F=ma$ 理解为数之间的关系 $10=2\times 5$。一般来说，{\blue 物理定律描述的是物理量之间的关系，而不是数之间的关系}。
+
+  \skipline
+  
+  之所以特别提出这一点，是因为物理量不一定都是以“数*单位”的形式出现——例如，矢量。
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{牛顿的绝对空间标架}
+  在牛顿力学中，惯性参考系可以用一个直角坐标系表示。沿直角坐标系的三个轴有正交归一化的基矢： $\vec{e}_x,\vec{e}_y, \vec{e}_z$。
+
+  \addfig{2.5}{abs_space.jpg}
+  {\bf $\vec{e}_x,\vec{e}_y, \vec{e}_z$ 和牛顿的绝对空间绑定在一起，不随时间变化。}  利用它们，物理矢量就可以用三个(数*单位)来表述。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{位移矢量 ，速度矢量 和加速度矢量}
+  质点的位移矢量 $\vec{s}(t)$ 可以用
+  $$ \vec{s}(t) = x(t) \vec{e}_x  + y(t) \vec{e}_y + z(t)\vec{e}_z $$
+  这里的 $x(t), y(t), z(t)$ 分别是 $t$ 时刻质点的 $x, y, z$ 坐标。
+
+  \skipline
+
+  对位移矢量求导后可以得到速度矢量：
+  $$ \vec{\upsilon}(t) =  x'(t) \vec{e}_x  + y'(t) \vec{e}_y + z'(t)\vec{e}_z $$
+
+  再次对速度矢量求导得到加速度矢量：
+
+  $$ \vec{\upsilon}(t) =  x''(t) \vec{e}_x  + y''(t) \vec{e}_y + z''(t)\vec{e}_z $$
+\end{frame}
+
+
+\begin{frame}
+  如果你喜欢，还可以定义加加速度，加加加速度……
+
+  \addfig{2}{peibushang.jpg}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{用曲面坐标系来描述矢量}
+  虽然取直角坐标系后“物理量的关系”可以直接变成“数的关系”，非常简明易懂。但是从某些角度看，直角坐标系未必是最佳选择。
+
+  \skiplines
+  
+  例如，用极坐标系推导行星的运动方程，会比直角坐标系方便得多。我们就以极坐标系为例，来初步理解非直角坐标系下“数的关系”如何变得更复杂。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{小学就十分熟悉的极坐标 $(r,\theta)$ 不用多介绍}
+
+  \addfig{1.8}{polarcoor.png}
+
+
+  假想在很短的 $dt$ 时间内，质点的
+    
+  $r$ 坐标稍稍变化了 $dr$，对应的坐标点轨迹是长度为 $dr$ ，方向沿径向的小矢量 （图中 $\vec{e}_r$ 表示径向的单位矢量）
+
+  $\theta$ 坐标稍稍变化了 $d\theta$，对应的坐标点轨迹是长度为 $rd\theta$，方向为切向的小矢量 （图中 $\vec{e}_\theta$ 表示切向的单位矢量）
+
+\end{frame}
+
+
+
+\begin{frame}
+  真实的轨迹显然是两种效应的矢量和，因此质点的速度为：
+
+  \tbox{$$\vec{\upsilon} = \frac{dr}{dt} \vec{e}_r + r\frac{d\theta}{dt} \vec{e}_\theta $$}
+
+  这个矢量的长度为
+
+  $$\sqrt{\left(\frac{dr}{dt}\right)^2+\left(r\frac{d\theta}{dt}\right)^2}$$
+
+  方位角为
+
+  $$\theta + \arctan\frac{r\frac{d\theta}{dt}}{\frac{dr}{dt}}$$
+
+  这里用 $\arctan$ 来写并不严谨——不过这不重要：我想说明的是，像直角坐标系那样直接对各个坐标求导肯定行不通了。
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{稍稍有些麻烦的加速度}
+  加速度就不太好用简单想象的方式写出来了，一般采用代数方法进行推导。为此，你需要先说服你自己
+
+  $$\frac{d\vec{e}_r}{dt} = \frac{d\theta}{dt} \vec{e}_\theta; \frac{d\vec{e}_\theta}{dt} = - \frac{d\theta}{dt} \vec{e}_r$$
+
+  然后就直接暴力操作得到：
+  \tbox{$$\vec{a} = \frac{d\vec{\upsilon}}{dt} = \left[\frac{d^2r}{dt^2} - r\left(\frac{d\theta}{dt}\right)^2\right]\vec{e}_r +\left(r\frac{d^2\theta}{dt^2} + 2\frac{dr}{dt}\frac{d\theta}{dt}\right) \vec{e}_\theta $$}
+\end{frame}
+
+
+
+\secpage{在旋转的圆盘上}{离心力和科里奥利力}
+
+\begin{frame}
+  \frametitle{旋转圆盘上的坐标系}
+  在以角速度 $\omega$ 旋转的圆盘上， 你仍然可以建立相对于圆盘的极坐标系 $(r,\theta)$，当然，极坐标中心取在圆盘的中心。
+
+
+  这时候，
+
+  \bea
+  \frac{d\vec{e}_r}{dt} &=& \left(\frac{d\theta}{dt} + \omega\right) \vec{e}_\theta \newl
+  \frac{d\vec{e}_\theta}{dt} &=& - \left(\frac{d\theta}{dt}+\omega\right) \vec{e}_r
+  \eea
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{速度矢量}
+  
+  在圆盘上运动的质点的（相对于牛顿绝对空间的）速度矢量为：
+
+  \bea
+  \vec{\upsilon} &=& \frac{d \left(r\vec{e}_r\right)}{dt} \newl
+  &=& \frac{dr}{dt}\vec{e}_r + r\left(\frac{d\theta}{dt} + \omega\right) \vec{e}_\theta
+  \eea
+  
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{加速度矢量}
+  
+  在圆盘上运动的质点的（相对于牛顿绝对空间的）加速度矢量为：
+
+  \bea
+  \vec{a} &=& \frac{d\vec{\upsilon}}{dt} = \frac{d}{dt}\left[\frac{dr}{dt}\vec{e}_r + r\left(\frac{d\theta}{dt} + \omega\right) \vec{e}_\theta\right] \newl
+  &=& \frac{d^2r}{dt^2} \vec{e}_r + \frac{dr}{dt}\left[\left(\frac{d\theta}{dt} + \omega\right) \vec{e}_\theta\right] \newl
+  && + \frac{dr}{dt}\left(\frac{d\theta}{dt} + \omega\right) \vec{e}_\theta + r\frac{d^2\theta}{dt^2}\vec{e}_\theta - r\left(\frac{d\theta}{dt} + \omega\right)\left(\frac{d\theta}{dt}+\omega\right) \vec{e}_r \newl
+  &=&  \left[\frac{d^2r}{dt^2} - r\left(\frac{d\theta}{dt}\right)^2\right]\vec{e}_r +\left(r\frac{d^2\theta}{dt^2} + 2\frac{dr}{dt}\frac{d\theta}{dt}\right) \vec{e}_\theta \newl
+  && - r\omega^2\vec{e}_r + 2\omega \left[\frac{dr}{dt}\vec{e}_\theta  - r\frac{d\theta}{dt}\vec{e}_r\right]
+  \eea
+  
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{非惯性力}
+  我们发现，由于圆盘旋转而多出来的“额外”的加速度为：
+  $$ \vec{a}_{\rm extra} = - r\omega^2\vec{e}_r + 2\omega \left[\frac{dr}{dt}\vec{e}_\theta  - r\frac{d\theta}{dt}\vec{e}_r\right] $$
+  设质点的质量为 $m$。这些客观上存在的加速度项需要客观上存在的“额外力” $\vec{F}_{\rm extra} =  m\vec{a}_{\rm extra} $ 来产生。但是对于误以为圆盘是静止（或者故意把圆盘当成静止）的观测者而言，他们看不到 $\vec{a}_{\rm extra}$，却能看到 $\vec{F}_{\rm extra}$ (例如通过弹簧秤的读数等) ——为了在圆盘参考系里使用牛顿力学，观测者就假想质点受到了一种内禀的“惯性力” $\vec{F}_{\rm inertial} = -m\vec{a}_{\rm extra}$ 抵消了 $F_{\rm extra}$：
+
+  $$ \vec{F}_{\rm inertial} = m r\omega^2 \vec{e}_r - 2m \omega \left[\frac{dr}{dt}\vec{e}_\theta  - r\frac{d\theta}{dt}\vec{e}_r\right]  $$
+
+  第一项就是通常所说的离心力，第二项就是通常所说的科里奥利力。它们都不是客观存在的力，而是圆盘上的观测者为了让牛顿第二定律适用于圆盘参考系而假想出来的力。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{科里奥利力}
+  
+  $$- 2m \omega \left[\frac{dr}{dt}\vec{e}_\theta  - r\frac{d\theta}{dt}\vec{e}_r\right] $$
+  通常被写作 $$-2m\vec{\omega}\times \vec{\upsilon}$$ 的形式。
+
+  这是把角动量矢量 $\vec{\omega}$ 的方向取为旋转轴方向（按照右手螺旋法则，大拇指指向矢量方向，其余四指弯曲指向旋转方向）。
+
+  \skipline
+
+ {\bf 注意}： 这里的 $\vec{\upsilon}$ 和我们前面写出来的相对于牛顿绝对时空的 $\vec{\upsilon}$不同：它指的是圆盘上的观测者“误以为”的质点速度 $\frac{dr}{dt}\vec{e}_r + r\frac{d\theta}{dt}\vec{e}_\theta$。
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem  
+\item{一个矢量保持长度不变，并以 $\omega$ 的角度逆时针旋转。矢量的瞬时变化率是怎样的？}
+\item{做匀速圆周运动的质点的位移可以写为：
+  $$ \vec{s}(t) = R\cos(\omega t) \, \vec{e}_x + R\sin(\omega t)\, \vec{e}_y $$
+  速度矢量 和 加速度矢量 如何随时间变化？
+}    
+\item{详细写出极坐标系加速度公式的推导。}
+  \eitem
+\end{frame}
+
+
+\ech
+\end{document}
