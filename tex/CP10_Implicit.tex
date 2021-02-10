@@ -1,0 +1,208 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{10}{隐函数的处理}
+
+  \begin{frame}
+    \frametitle{物理场景假设}
+    在本讲中，我们仍将假设物理场景，多元函数足够光滑（任意阶偏导数存在且连续，这样偏导都可以交换次序）。如果多个变量 $x,y,\ldots$ 满足一个制约关系：
+    $$f(x,y,\ldots) = 0$$
+    那么就有
+    $$ \hat{D} f = 0 $$
+    这里的全微分算符  $\hat{D} = dx \frac{\partial}{\partial x} + dy \frac{\partial f}{\partial y} + \ldots $.
+  \end{frame}
+
+  \thinkb{
+    设实变量 $x,y$ 满足
+    $$ x^2y = e^x- e^y,$$
+    当 $x$ 大约为多少时， $y$ 取到最小值？
+  }
+
+
+  \secpage{单自由度系统}{$$\frac{dx}{dy}\frac{dy}{dz}\frac{dz}{dx} = 1$$}
+  
+  \begin{frame}
+    \frametitle{单自由度系统}
+    假设有一堆变量 $X_1, X_2, X_3 \ldots$，当其中任意一个 $X_i$ 变动小量 $d X_i$ 时，其余所有变量的变化都被
+    $$dX_j = c_{ij} dX_i $$
+    确定 （其中 $c_{ij} = \frac{dX_j}{dX_i} $ 可以由 $X_1, X_2, \ldots $ 唯一确定）时，我们称该系统为{\blue 单自由度系统}。
+
+    \skipline
+    
+    {\blue 对单自由度系统，可以把 $\frac{dX_j}{dX_i}$ 当成普通的商处理。}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{例子}
+    例如 $x$, $y=e^x$, $z=\arctan x$ 这三个量就是个单自由度系统。
+    $$\frac{dy}{dx} = e^x = y$$
+    $$\frac{dx}{dz} = 1+x^2 $$
+    $$\frac{dz}{dy} = \frac{1}{(1+x^2)y} $$
+  \end{frame}
+
+\secpage{二自由度系统}{$$\left(\frac{\partial  X}{\partial Y}\right)_Z  \left(\frac{\partial  Y}{\partial Z}\right)_X \left(\frac{\partial  Z}{\partial X}\right)_Y = -1$$}
+
+  \begin{frame}
+    \frametitle{二自由度系统}
+    假设有一堆变量 $X_1, X_2, X_3 \ldots$，当其中任意两个 $X_i$, $X_j$ 分别变动小量 $d X_i$, $dX_j$ 时，其余所有变量的变化都被
+    $$dX_k = \alpha_{ki,j} dX_i + \alpha_{kj,i} dX_j$$
+    确定 （其中每一个 $\alpha_{ki,j} = \left(\frac{\partial X_k}{\partial X_i}\right)_{X_j}$ 都可以由 $X_1, X_2, \ldots $ 唯一确定）时，我们称该系统为{\blue 二自由度系统}。
+
+    \skipline
+
+    我们的偏导符号发生了一点改变：{\blue $ \left(\frac{\partial X_k}{\partial X_i}\right)_{X_j}$ 表示当固定 $X_j$ 不变时， $X_k$ 和 $X_i$ 的微小改变量之比。} 之所以能这样说，是因为二自由度系统固定一个变量 $X_j$ 时，就成为单自由度系统，$X_k$ 和 $X_i$ 之比就可以唯一地由  $X_1, X_2, \ldots $ 确定。
+
+    \skipline
+    
+    显然，根据定义即有{\blue  $\left(\frac{\partial X_k}{\partial X_i}\right)_{X_j} \left(\frac{\partial X_i}{\partial X_k}\right)_{X_j} = 1$}.
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{和以前的偏导符号的对比}
+    在研究显式二元函数 $f(x,y)$ 时，其实 $f,x,y$ 这三个量也构成了二自由度系统。我们以前的符号 $\frac{\partial f}{\partial x}$，其实是默认自变量为 $x,y$，所以把 $\left(\frac{\partial f}{\partial x}\right)_y$的固定量下标 $y$ 给省略了。在讨论一般的二自由度系统时，并不清楚哪些量是自变量，所以这种固定量下标不能省略。
+
+    \skiplines
+    
+    但在讨论二阶偏导时，写一堆固定量下标很麻烦（更主要是丑）。有时为了书写方便会事先约定哪两个量为自变量。这时就可以省略固定量下标。
+  \end{frame}
+  
+
+\begin{frame}
+  \frametitle{简单链式法则}
+  \tbox{
+    设三个变量$X$, $Y$, $Z$, $W$ 是二自由度系统的四个变量，则
+    $$\pfrac XYW \pfrac YZW = \pfrac XZW $$
+  }
+
+  \skiplines
+
+  证明：因为固定 $W$ 时，系统自由度降为1个，所以这简单就是一元函数微分的链式法则。
+\end{frame}  
+
+
+\begin{frame}
+  \frametitle{循环偏微分乘积定理}
+  \tbox{
+    设三个变量$X$, $Y$, $Z$是二自由度系统的三个变量，则
+    $$\left(\frac{\partial  X}{\partial Y}\right)_Z  \left(\frac{\partial  Y}{\partial Z}\right)_X \left(\frac{\partial  Z}{\partial X}\right)_Y = -1$$
+  }
+
+ {\small  证明：由二自由度系统的定义有 $dX = \pfrac XYZ dY +\pfrac XZY dZ$。然后考虑固定 $X$，也是 $dX=0$时， $dY$ 和 $dZ$ 就满足：
+  $$ \pfrac XYZ dY +\pfrac XZY dZ = 0$$
+  也就是说，固定 $X$ 时， $dY$ 和 $dZ$ 之比
+  $$\pfrac YZX = - \frac{\pfrac XZY}{\pfrac XYZ}.$$
+  再利用 $ \pfrac XZY \pfrac ZXY = 1$ 即得证。
+  }
+\end{frame}  
+
+\begin{frame}
+  \frametitle{切换固定量}
+  \tbox{
+    设$W, X, Y, Z$是二自由度系统的四个变量，则有
+    $$ \pfrac WXY - \pfrac WXZ = \pfrac WZX \pfrac ZXY $$}
+
+  {\small
+    证明：根据二自由度系统的定义
+    $$ dW = \pfrac WXZ dX + \pfrac WZX dZ $$
+    在固定 $Y$ 时，利用 $ dZ = \pfrac ZXY dX$ 就可以得到固定 $Y$ 时 $dW$ 和 $dX$ 之比为
+    $$\pfrac WXY = \pfrac WXZ + \pfrac WZX \pfrac ZXY $$
+    
+    }
+  
+\end{frame}
+
+
+\secpage{单一成分平衡态系统}{$$dU = TdS-pdV $$
+  $$dH = TdS+Vdp $$
+  $$dF = -SdT-pdV $$
+  $$dG = -SdT+Vdp $$  
+}
+
+\begin{frame}
+  \frametitle{单一成分平衡态系统}
+  在热学中，单一成分平衡态系统的压强 $p$、体积 $V$、热力学温度 $T$ 之间一般满足一个制约关系。这个制约关系可以用 $p$-$V$-$T$ 空间里的一个曲面表示，该曲面称为 $p$-$V$-$T$ 相图。
+
+  \addfig{3}{PVTdiagram.png}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{单一成分平衡态系统是二自由度系统}
+  描述单一成分平衡态系统，不止可以用我们熟悉的 $p$, $V$, $T$ (相图给出它们之间的制约关系)，还可以用另外一些：熵 $S$，内能 $U$ ，焓 $H\equiv U+pV$，自由能 $F\equiv U-TS$，自由焓 $G\equiv F+pV$。可以认为{\blue $p, V, T, S, U, H, F, G$ 这些“态函数”构成了二自由度系统}。
+\end{frame}
+
+\begin{frame}
+  \frametitle{思考题}
+单一成分平衡态物质的膨胀系数定义为
+  $$\alpha \equiv \frac{1}{V}\pfrac VTp$$
+  压强系数定义为
+  $$\beta \equiv \frac{1}{p}\pfrac pTV$$
+  压缩系数定义为
+  $$\kappa \equiv -\frac{1}{V}\pfrac VpT$$
+  试证明：
+  $$\alpha = \kappa \beta p$$
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{热力学第一定律}
+  由于准静态过程中吸热量$\dbar Q$ 和熵变 $dS$ 存在 {\blue $\dbar Q=TdS$ }的关系，热力学第一定律（能量守恒）给出
+  {\blue $$dU = TdS - p dV.$$}
+  然后根据 $H, F, G$ 的定义，有
+  {\blue
+    \bea
+    dH &=& TdS + Vdp \newl
+    dF &=& -SdT - pdV \newl
+    dG &=& -SdT + Vdp
+    \eea
+  }
+  这些方程是描述单一成分平衡态系统的基本方程，在学习热力学时将反复强调。
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{麦克斯韦关系}
+  对单一成分平衡态系统证明下述Maxwell关系：
+\bitem
+\item{$\pfrac TVS = -\pfrac pSV$}
+\item{$\pfrac TpS = \pfrac VSp$}
+\item{$\pfrac SVT = \pfrac pTV$}
+\item{$\pfrac SpT = -\pfrac VTp$}
+\eitem
+\end{frame}  
+
+
+\begin{frame}
+  \frametitle{定体热容和定压热容}
+  固定体积时，单位温度变化需要吸收的热量称为定体热容，用 $C_V$ 表示。也就是说，
+{\blue  $$C_V := T\pfrac STV. $$}
+
+  \skipline
+  
+  固定压强时，单位温度变化需要吸收的热量称为定压热容，用 $C_p$ 表示。也就是说，
+  {\blue $$ C_p := T\pfrac STp.$$}
+  请证明：
+  $$ C_p - C_V = T\pfrac pTV \pfrac VTp $$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem
+\item[1]{$y\in[-\frac{\pi}{2},\frac{\pi}{2}]$ 以及 $x=\sin y$ 构成了单自由度系统。由此计算反正弦函数 $y=\arcsin x$ 的导函数。}
+\item[2]{对单一成分平衡态系统证明 $$\pfrac HVp = T\pfrac pTS $$}
+\item[3]{对单一成分平衡态系统证明 $$\pfrac UpV = -T\pfrac VTS$$}
+\item[4]{对单一成分平衡态系统证明 $$\pfrac TSH +\frac{T^2}{V} \pfrac VHp = \frac{T}{C_p} $$
+  }  
+  \eitem
+\end{frame}
+
+\ech
+\end{document}

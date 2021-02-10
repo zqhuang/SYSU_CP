@@ -1,0 +1,164 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{9}{多元函数}
+
+
+
+\secpage{多元函数}{$f(x,y,\ldots)$}
+  
+\begin{frame}
+  \frametitle{多元函数的例子}
+
+  $$f(x, y) = x+y$$
+  
+  $$f(x, y) = e^x \cos y$$
+
+  $$f(x, y, z) = z+ \ln (x+y)$$  
+
+  \ldots
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{偏导数}
+  一个二元函数 $f(x,y)$，如果把 $x$ 固定，就成为一个 $y$ 的一元函数。这个函数如果可以可导，就可以定义“偏导数”：
+  \tbox{$$\frac{\partial f}{\partial y} := \lim_{\Delta y\rightarrow 0} \frac{f(x, y+\Delta y) - f(x, y)}{\Delta y}$$}
+  等式左边的意思是：当 $x$ 值保持不变时， $f$ 的微小改变量和 $y$ 的微小改变量之比。
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{偏导数}
+  类似地，如果把 $y$ 固定考虑 $x$ 的变化，可以定义
+  \tbox{$$ \frac{\partial f}{\partial x} := \lim_{\Delta y\rightarrow 0} \frac{f(x+\Delta x, y) - f(x, y)}{\Delta x}$$}
+  等式左边的意思是：当 $y$ 值保持不变时， $f$ 的微小改变量和 $x$ 的微小改变量之比。
+\end{frame}
+
+\begin{frame}
+  \frametitle{二阶偏导数}
+  如果把 $\frac{\partial f}{\partial x}$ 继续对 $x$ 或者对 $y$ 求偏导数，就得到二阶偏导数：
+  \tbox{$$\frac{\partial^2f}{\partial x^2} :=\frac{\partial\frac{\partial f}{\partial x}}{\partial x}$$}
+  \tbox{$$\frac{\partial^2f}{\partial x\partial y} :=\frac{\partial\frac{\partial f}{\partial x}}{\partial y}$$}  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{偏导数}
+  对三元函数 $f(x,y,z)$ 类似地可以定义
+  \tbox{$$\frac{\partial f}{\partial x} := \lim_{\Delta y\rightarrow 0} \frac{f(x+\Delta x, y,z) - f(x, y,z)}{\Delta x}$$}
+  等式左边的意思是：当 $y,z$ 值都保持不变时， $f$ 的微小改变量和 $x$ 的微小改变量之比。
+
+  \skiplines
+  
+  也可以定义高阶偏导数等等。
+\end{frame}
+
+\thinka{设 $f(x,y,z) = x^{y^z}$，计算
+  $$\frac{\partial^2 f}{\partial y\partial z}$$
+  以及
+  $$\frac{\partial^2 f}{\partial z\partial y},$$
+  两者相同吗？
+}
+
+\begin{frame}
+  \frametitle{可导与连续的关系}
+  \begin{tabular}{cccc}
+    \hline
+    \hline
+    & 连续 $\Rightarrow$ 可导 & 可导 $\Rightarrow$ 连续 & 可导 $\Rightarrow$ 导函数连续 \\
+    \hline
+    一元函数 & $\times$  & $\checkmark$ & $\times$ \\
+    多元函数 & $\times$  & $\times $   & $\times $ \\
+    \hline
+  \end{tabular}
+
+  \skiplines
+  
+ 只有一个 $\checkmark$，好记吧！
+\end{frame}
+
+
+\secpage{多元泰勒公式}{$$ f(x+dx, y+dy,\ldots) = \sum_{k=0}^\infty \frac{1}{k!}\hat{D}^kf(x,y,\ldots)$$
+  这里的全微分算符：
+  $$\hat{D} := dx \frac{\partial}{\partial x}+ dy \frac{\partial}{\partial y}+\ldots $$
+}
+
+\begin{frame}
+  下面我们转而考虑物理问题。在物理中，一般考虑的函数都足够光滑。也就是说，无论允许变化的是哪个变量，偏导数都存在且连续。
+
+
+  \skipline
+
+ {\bf 警告：``偏导数都存在且连续''是比较强的假设，也就是说，本讲有些结论不能在数学课上直接使用。}
+
+
+ \skiplines
+ 
+ 学习一元函数时，我们让自变量稍稍变化，把函数值的变化用泰勒公式进行了各级精确度的估算。
+
+  \skipline
+  
+  对二元函数，我们来做类似的估算：
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{一阶近似}
+  \bea
+  && f(x+dx, y+dy) - f(x, y) \newl
+  &=& f(x+dx, y+dy) - f(x+dx, y) + f(x+dx, y)-f(x,y) \newl
+  &\approx & \left.\frac{\partial f}{\partial y}\right\vert_{x+dx, y}  dy + \frac{\partial f}{\partial x} dx \newl
+  &\approx & \frac{\partial f}{\partial y}  dy + \frac{\partial f}{\partial x} dx   \newl
+  &=& \left(dx \frac{\partial }{\partial x} + dy \frac{\partial }{\partial y} \right)f 
+  \eea
+  我们用下标$\vert_{\ldots}$来表示这个量是在 $(\ldots)$ 点计算的。没有下标则默认是在 $x, y$ 点计算。
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{二阶近似}
+  {\small
+  \bea
+  && f(x+dx, y+dy) - f(x, y) \newl
+  &=& f(x+dx, y+dy) - f(x+dx, y) + f(x+dx, y)-f(x,y) \newl
+  &\approx & \left.\frac{\partial f}{\partial y}\right\vert_{x+dx, y} dy + \left.\frac{1}{2}\frac{\partial^2f}{\partial y^2}\right\vert_{x+dx, y} dy^2 + \frac{\partial f}{\partial x} dx + \frac{1}{2}\frac{\partial^2f}{\partial x^2}dx^2 \newl
+  &\approx & \left.\frac{\partial f}{\partial y}\right\vert_{x+dx, y} dy + \frac{1}{2}\frac{\partial^2f}{\partial y^2} dy^2 + \frac{\partial f}{\partial x} dx + \frac{1}{2}\frac{\partial^2f}{\partial x^2}dx^2 \newl
+  &\approx & \frac{\partial f}{\partial y} dy + \frac{\partial^2f}{\partial x\partial y}dx dy + \frac{1}{2}\frac{\partial^2f}{\partial y^2} dy^2 + \frac{\partial f}{\partial x} dx + \frac{1}{2}\frac{\partial^2f}{\partial x^2}dx^2 \newl
+  &=& \left(dx \frac{\partial }{\partial x} + dy \frac{\partial }{\partial y}\right)f + \frac{1}{2}\left(dx \frac{\partial }{\partial x} + dy \frac{\partial }{\partial y}\right)^2f
+  \eea
+  }
+\end{frame}
+
+\thinka{设 $f(x,y)$ 对 $x,y$ 的二阶偏导数都存在且连续，是否一定有 $\frac{\partial^2f}{\partial x\partial y} = \frac{\partial^2f}{\partial y\partial x}$?}  
+
+\begin{frame}
+  \frametitle{二元函数泰勒公式}
+  不断继续上述流程，可以得到二元函数的泰勒公式：
+  $$ f(x+dx, y+dy) = \sum_{k=0}^\infty \frac{1}{k!}\left(dx \frac{\partial}{\partial x}+ dy \frac{\partial}{\partial y}\right)^kf(x,y)$$
+  很容易把它推广到更多元函数的情况
+  \tbox{
+  $$ f(x+dx, y+dy,\ldots) = \sum_{k=0}^\infty \frac{1}{k!}\hat{D}^kf(x,y,\ldots)$$
+  这里的全微分算符：
+  $$\hat{D} := dx \frac{\partial}{\partial x}+ dy \frac{\partial}{\partial y}+\ldots $$
+  }
+\end{frame}
+
+
+\thinka{比较用一元函数泰勒公式和二元函数泰勒公式展开 $\sin(\epsilon_1+\epsilon_2)$ 结果的异同。($|\epsilon_1|,|\epsilon_2|\ll 1$)}
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem
+\item[1]{举出一个二元函数在某点的两个一阶偏导数都存在，但函数在该点不连续的例子。}
+\item[2]{设 $f$ 为足够光滑的函数，比较用一元函数泰勒公式和二元函数泰勒公式展开 $f(\epsilon_1+\epsilon_2)$ 结果的异同。($|\epsilon_1|,|\epsilon_2|\ll 1$)}
+  \eitem
+\end{frame}
+
+\ech
+\end{document}

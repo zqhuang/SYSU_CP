@@ -1,0 +1,120 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{11}{带参量的积分和多重积分}
+
+  \secpage{带参量的积分}{$$\Gamma(x) := \int_0^\infty t^{x-1}e^{-t}dt$$}
+
+  \begin{frame}
+  \frametitle{含参量的积分：固定上下界}
+  设$f$是已知的二元函数，$a,b$是常数，可以用含参量的积分来定义函数
+  $$F(x) =\int_a^b f(x, t) dt.$$
+  当{\bf 积分收敛性和光滑性很好时，可以交换积分和求导的次序}
+  $$F'(x) =\int_a^b \frac{\partial f(x, t)}{\partial x} dt.$$  
+\end{frame}
+
+
+  \begin{frame}
+    \frametitle{思考题}
+    已知积分
+    $$\int_{-\infty}^\infty e^{-x^2}dx = \sqrt{\pi}. $$
+    计算
+    $$\int_{-\infty}^\infty x^2 e^{-x^2}dx $$
+    的值。
+\end{frame}
+
+
+  
+\begin{frame}
+  \frametitle{含参量的积分:变上下界}
+  设$\alpha,\beta$是已知的一元函数，$f$是已知的二元函数，定义函数
+  $$F(x) =\int_{\alpha(x)}^{\beta(x)} f(x, t) dt.$$
+  当积分收敛性和光滑性很好时，
+  \tbox{$$F'(x) =\int_{\alpha(x)}^{\beta(x)} \frac{\partial f(x, t)}{\partial x} dt + \beta'(x) f\left(x,\beta(x)\right) - \alpha'(x)f\left(x,\alpha(x)\right) .$$ }
+  {\scriptsize (上面的结果有非常简单的几何解释，你能给出来吗？)}
+  
+\end{frame}
+
+\thinka{在$x\in(0,\infty)$上定义$\Gamma$函数$$\Gamma(x) = \int_0^\infty t^{x-1}e^{-t}dt.$$
+  试证明$-1<\Gamma'(1)<0.$}
+
+
+
+  \secpage{多重积分}{$$\iint f(x,y) dxdy = \int \left[ \int f(x,y) dy\right] dx$$}
+  
+  \begin{frame}
+    \frametitle{多重积分}
+    多重积分：连续对多个变量计算积分的操作。
+
+    例如二重积分：
+    \bea
+    \int_0^1dy \int_0^1dx\, (x+y)^2  &=& \int_0^1 \frac{1}{3}\left[(1+y)^3-y^3\right] \newl
+    &=& \left.\frac{1}{12}\left[(1+y)^4-y^4\right]\right\vert^1_0 \newl
+    &=& \frac{7}{6}
+    \eea
+  \end{frame}
+
+  
+  \thinka{请分别用一重积分和二重积分的方式计算半径为 $R$ 的圆的面积。}
+  
+  \begin{frame}
+    \frametitle{曲面下的体积}
+    \addfig{3.2}{volume_int2D.jpg}
+
+    $$V = \iint f(x,y) dx dy$$
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{柱坐标系}
+    \bmini{0.7}
+    \addfig{2.5}{cylindricalcoor.png}
+    \emini
+    \bmini{0.26}
+    和直角坐标的关系：
+    
+    \bea
+    x &=& r\cos\theta \newl
+    y&=& r\sin\theta \newl
+    z &=& z
+    \eea
+    \emini
+  \end{frame}
+
+
+  \begin{frame}
+  \frametitle{球坐标系}
+  \bmini{0.7}  
+  \addfig{2.5}{sphericalcoor.png}
+  \emini
+  \bmini{0.26}
+  和直角坐标的关系：
+    \bea
+    x &=& r\sin\theta \cos\varphi\newl
+    y&=& r\sin\theta\sin\varphi \newl
+    z &=& r\cos\theta
+    \eea
+    \emini
+  \end{frame}
+
+
+
+  \thinkb{请分别用一重积分、二重积分和三重积分的方式计算半径为 $R$ 的球的体积。}  
+
+
+  \begin{frame}
+    \frametitle{Homework}
+    \bitem
+  \item[1]{你能否把 $\Gamma'(1)$ 的范围估算得更准确一些？}
+  \item[2]{柱坐标系的 $r=$ 常数， $\theta=$ 常数，$z=$ 常数分别代表了什么曲面？}
+  \item[3]{球坐标系的 $r=$ 常数， $\theta=$ 常数，$\varphi=$ 常数分别代表了什么曲面？}    
+  \item[4]{计算质量为$m$，半径为 $R$ 的球绕自己的直径的转动惯量。}
+    \eitem
+  \end{frame}
+  
+
+\ech
+\end{document}

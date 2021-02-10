@@ -1,0 +1,90 @@
+\documentclass[CJK,13pt]{beamer}
+\input{macros.tex}
+\input{titlepage.tex}
+  \date{}
+  \begin{document}
+  \bch
+  \tpage{8}{泰勒公式和其他类似定理的证明}
+
+  \begin{frame}
+    \frametitle{证明题大概就是……}
+    \addfig{3}{fuxiguake.jpg}
+  \end{frame}
+
+\secpage{“入门级”问题}{\addfig{2}{fangqi.jpg}}
+  
+\begin{frame}
+  \frametitle{介值定理}
+  
+  设函数 $f(x)$ 在 $[a,b]$ 上连续，$f(a) < f(b)$。证明：对任意 $c\in \left(f(a), f(b)\right)$，存在 $\zeta\in(a,b)$ 使得 $f(\zeta)=c$。
+\end{frame}
+
+  
+  \begin{frame}
+    \frametitle{罗尔定理}
+  设函数 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，且 $f(a)=f(b)$，证明：存在 $\zeta\in(a,b)$ 使得 $f'(\zeta)=0$。
+\end{frame}
+
+\secpage{套路1}{三人行，必有两个空档}
+
+\begin{frame}
+  设$a<b<c$，函数 $f(x)$ 在 $[a,c]$ 上连续，在 $(a,c)$ 内二阶可导，且 $f(a)=f(b)=f(c)$，证明：存在 $\zeta\in(a,c)$ 使得 $f''(\zeta)=0$。
+\end{frame}
+
+
+\begin{frame}
+  设$a<b<c<d$，函数 $f(x)$ 在 $[a,d]$ 上连续，在 $(a,d)$ 内三阶可导，且 $f(a)=f(b)=f(c)=f(d)$，证明：存在 $\zeta\in(a,d)$ 使得 $f'''(\zeta)=0$。
+\end{frame}
+
+\begin{frame}
+  \addfig{2}{peibushang.jpg}
+\end{frame}
+
+
+\secpage{套路2}{百搭款端点}
+
+\begin{frame}
+  设函数 $f(x)$ 在 $[a,b]$ 上二阶可导，且 $f(a)=f(b)$, $f'(a) = 0$，证明：存在 $\zeta\in(a,b)$ 使得 $f''(\zeta)=0$。
+\end{frame}
+
+
+\begin{frame}
+  设函数 $f(x)$ 在 $[a,b]$ 上三阶可导，且 $f(a)=f(b)$, $f'(a) = f''(a) = 0$，证明：存在 $\zeta\in(a,b)$ 使得 $f'''(\zeta)=0$。
+\end{frame}
+
+
+\secpage{套路3}{动静结合}
+
+\begin{frame}
+  设函数 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导。证明： 存在 $\zeta\in(a,b)$，使得 $f'(\zeta) = \frac{f(b)-f(a)}{b-a}$。
+\end{frame}
+
+
+\begin{frame}
+  设函数 $f(x)$和 $g(x)$ 均在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，$g(a)\ne g(b)$。证明： 存在 $\zeta\in(a,b)$，使得 $\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(\zeta)}{g'(\zeta)}$。
+\end{frame}
+
+
+\begin{frame}
+  设函数 $f(x)$ 在 $[a,b]$ 上 $n+1$ 次可导。证明： 存在 $\zeta\in(a, b)$，使得
+  $$ f(b) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(b-a)^k + \frac{f^{(n+1)}(\zeta)}{(n+1)!}(b-a)^{n+1} .$$
+\end{frame}
+
+
+\begin{frame}
+  设函数 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内二阶可导，且 $f(a)=f(b)=0$，证明：对每个 $x\in (a,b)$，都存在 $\zeta\in(a,b)$，使得 $f(x)=\frac{f''(\zeta)}{2}(x-a)(x-b)$.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Homework}
+  \bitem
+\item[1]{设$a<b<c$，函数 $f(x)$ 在 $[a,c]$ 上三阶可导，且 $f(a)=f(b)=f(c)$, $f'(a) = 0$，证明：存在 $\zeta\in(a,c)$ 使得 $f'''(\zeta)=0$。}
+\item[2]{设函数 $f(x)$ 在 $[0,\pi]$ 上连续，在 $(0,\pi)$ 内二阶可导，且 $f(0)=f(\pi)=0$，证明：对每个 $x\in (0,\pi)$，都存在 $\zeta\in(0,\pi)$，使得 $f(x)= - \frac{\sin x}{\sin \zeta}f''(\zeta)$.
+}
+\item[3]{设 $f$ 在 $[a,b]$ 上处处可导，证明导函数$f'(x)$ 满足介值定理: 对介于 $f'(a)$ 和 $f'(b)$ 之间的 $c$，一定存在 $\zeta\in [a,b]$ 使得 $f'(\zeta)=c$.}  
+  \eitem
+\end{frame}
+
+\ech
+\end{document}
